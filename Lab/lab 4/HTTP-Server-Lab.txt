@@ -1,0 +1,77 @@
+HTTP Server Lab
+
+Building on the EchoServerTCP.java class provided in class, develop a simple HTTP
+server.  Your HTTP server should handle simple GET requests for static html
+files.
+
+You should visit your simple HTTP server using a browser.  You do not need to
+develop an HTTP client.
+
+EchoServerTCP.java, and all the client and server files can be found at:
+http://www.andrew.cmu.edu/course/95-702/examples/sockets/
+
+Your HTTP server should be able to handle multiple requests, one-at-a-time. You
+do *not* have to handle multiple simultaneous requests, so your solution can be
+single-threaded. (I.e. you do not have to use threads.)
+
+In general terms, your simple HTTP server should:
+	Create a socket
+	Forever
+		- accept a socket connection
+		- read the first line of the HTTP request
+			- parse out the file path requested
+			- read but discard the rest of the request headers
+					so that the next line read would be the next HTTP 
+					request, not a prior header
+		- open the file requested on your local disk
+			- if unsuccessful, report file not found using the right HTTP status code,
+					and go to next request
+			- reply with OK response header
+			- while more lines of the file are left
+				- read a line of the file
+				- write to the socket
+			- flush the socket
+			- close the socket
+
+Hints:
+	HTTP REQUEST:
+	- You should review the Server Side Programming slides (slides 7-8) from 
+			class #2 to review simple HTTP requests.
+			E.g. In Chrome, here is an HTTP request of http://localhost:3000/test.html
+				GET /test.html HTTP/1.1
+				Host: localhost:3000
+				Connection: keep-alive
+				Cache-Control: max-age=0
+				Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+				User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_2)  ...
+				Accept-Encoding: gzip,deflate,sdch
+				Accept-Language: en-US,en;q=0.8
+				Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.3
+
+	- A blank line delimits the end of the HTTP request
+	
+	HTTP RESPONSE:
+	- The minimal response header is simply "HTTP/1.1 200 OK\n\n"  The backslash-n
+			indicates a new line.  The extra new line means end of headers.  A typical
+			server will send additional headers, but you don't need to.
+	- After the header and new line, you would follow with the content of the
+			requested file.
+	- You only need to handle GET requests (not POST, etc.)
+	- Put a test html file in your NetBeans project directory to make it easy
+			to find.
+	- You are probably familiar with the Scanner class which can be helpful with
+	    this task.  Otherwise you may prefer to use the FileReader class to open
+	    the file, and pass the FileReader to a BufferedReader to make the file
+	    easy to read a line at a time.
+	- Repeatedly read a line from the file and write it to the socket, until the
+			whole file has been read and sent.
+	- Return the appropriate HTTP Status Code (404) if the file is not found.
+	- You will visit your simple HTTP server using a browser.
+			(You do *not* develop an HTTP client.)
+
+Extra challenges (not required):
+	- Return 405 Method Not Allowed if you receive an HTTP method you don't handle
+
+Demonstrate your solution to a TA for credit.
+If you don't complete the lab by the end of class, you must show a TA during
+	their office hours within a week of the lab class.
