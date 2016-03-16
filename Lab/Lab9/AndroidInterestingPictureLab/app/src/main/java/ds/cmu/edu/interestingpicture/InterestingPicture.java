@@ -44,13 +44,17 @@ public class InterestingPicture extends AppCompatActivity {
     public void pictureReady(Bitmap picture) {
         ImageView pictureView = (ImageView)findViewById(R.id.interestingPicture);
         TextView searchView = (EditText)findViewById(R.id.searchTerm);
+        TextView feedbackView = (TextView) findViewById(R.id.textView);
         if (picture != null) {
             pictureView.setImageBitmap(picture);
             pictureView.setVisibility(View.VISIBLE);
-            findViewById(1).sett
+            feedbackView.setText("Here is a picture of a ");
+            feedbackView.append(searchView.getText());
         } else {
             pictureView.setImageResource(R.mipmap.ic_launcher);
             pictureView.setVisibility(View.INVISIBLE);
+            feedbackView.setText("Sorry, I could not find a picture of a ");
+            feedbackView.append(searchView.getText());
         }
         searchView.setText("");
         pictureView.invalidate();
