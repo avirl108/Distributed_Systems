@@ -1,0 +1,70 @@
+Topics to Review for Midterm 2 95-702                                             
+
+    Be sure to review labs 5-8 and projects 2 and 3 as well as the
+    following set of topics.  You should understand what you did in the labs
+    and projects, as well as why you did it that way.  
+    
+    This list attempts to provide an indication of the broad set of topics that
+    will be covered on the test.  It is not 100% comprehensive, however.  Any
+    topic that was discussed in class, or has been part of the readings, labs, 
+    and homework projects for this class might be included in the second 
+    midterm exam. This topic list should be used to focus your review.
+
+    Chapter 11 Security and Cryptography
+    RSA
+    cryptographic protocols
+    cryptographic notation
+    symmetric key crypto
+    asymmetric key crypto
+    Scenario 1 (like TEA and WWII enigma)
+    Scenario 2 (Like Needham-Schroeder, Like Kerberos)
+    Scenario 3 (Authentication)
+    Scenario 4 (Like SSL)
+    MACs
+    Programming Java SSL sockets
+
+    Chapter 9 Web Services
+    Web service design patterns
+    Binary schemes and performance
+    Coupling in space and time
+    Separation of concerns and examples
+    Jon Postel's Law
+    Productivity and Adaptability
+    Web service API styles: RPC, Message, Resource
+    Style considerations
+    REST architectural principles
+    Linked services pattern
+    Client server interaction styles
+    Odata
+
+    Chapter 4 Interprocess Communications
+    Middleware
+    External Data Representations
+    CORBA CDR
+    Java serialization
+    XML and JSON
+    UDP based request response protocol
+    Fault tolerance measures for the UDP request response
+    RPC Exchange protocols (R, RR, RRA)
+
+    The End-To-End Argument
+
+    Android and Mobile Devices
+    The rise of mobile platforms
+    Components of Distributed Systems
+    Building a native application
+    Android architecture
+    Android activity lifecycle
+    Manifest.xml
+    Flow of control
+    Android UI
+    Network latency and AsynchTask
+
+    Chapter 5 Remote Method Invocation
+    Interface Definition Language (IDL)
+    Goals of Java RMI
+    Remote Object References
+    EJB remote and local interfaces
+    Generic RMI component interactions
+    Registries
+    Java RMI code examples
